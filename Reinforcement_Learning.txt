@@ -1,0 +1,57 @@
+The agent has to exploit what it already knows in order to obtain
+reward, but it also has to explore in order to make better action selections in
+the future. The dilemma is that neither exploration nor exploitation can be
+pursued exclusively without failing at the task. The agent must try a variety of
+actions and progressively favor those that appear to be best. 
+
+Beyond the agent and the environment, one can identify four main subelements
+of a reinforcement learning system: a policy, a reward signal, a value function,
+and, optionally, a model of the environment.
+A policy is a mapping from perceived states of the environment to actions to be taken when in those states
+On each time step, the environment sends to the reinforcement learning agent a
+single number, a reward. The agent’s sole objective is to maximize the total
+reward it receives over the long run.
+Whereas the reward signal indicates what is good in an immediate sense,
+a value function specifies what is good in the long run. Roughly speaking, the
+value of a state is the total amount of reward an agent can expect to accumulate
+over the future, starting from that state.
+The fourth and final element of some reinforcement learning systems is
+a model of the environment. This is something that mimics the behavior of
+the environment, or more generally, that allows inferences to be made about
+how the environment will behave. For example, given a state and action,
+the model might predict the resultant next state and next reward. Models
+are used for planning, by which we mean any way of deciding on a course of
+action by considering possible future situations before they are actually experienced.
+
+methods search in spaces of policies
+defined by a collection of numerical parameters. They estimate the directions
+the parameters should be adjusted in order to most rapidly improve a policy’s
+performance. Unlike evolutionary methods, however, they produce these estimates while the agent is interacting with its environment and so can take
+advantage of the details of individual behavioral interactions. Methods like
+this, called policy gradient methods
+
+any problem of learning goal-directed behavior
+can be reduced to three signals passing back and forth between an agent and
+its environment: one signal to represent the choices made by the agent (the
+actions), one signal to represent the basis on which the choices are made (the
+states), and one signal to define the agent’s goal (the rewards)
+
+The additional concept that we need is that of discounting. According to
+this approach, the agent tries to select actions so that the sum of the discounted
+rewards it receives over the future is maximized. In particular, it chooses At
+to maximize the expected discounted return:
+Gt = Rt+1 + γRt+2 + γ^2(Rt+3) + · · · 
+The discount rate determines the present value of future rewards: a reward
+received k time steps in the future is worth only γ^k−1 times what it would be
+worth if it were received immediately'
+
+
+A state signal that succeeds in retaining all relevant information is said to be Markov, or to have
+the Markov property (we define this formally below). For example, a checkers position—the current 
+configuration of all the pieces on the board—would serve as a Markov state because it 
+summarizes everything important about thecomplete sequence of positions that led to it. Much of the information about
+the sequence is lost, but all that really matters for the future of the game is
+retained. 
+A reinforcement learning task that satisfies the Markov property is called a
+Markov decision process, or MDP. If the state and action spaces are finite,
+then it is called a finite Markov decision process (finite MDP). 
